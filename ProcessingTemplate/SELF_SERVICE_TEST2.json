@@ -1,0 +1,34 @@
+{
+  "calendar": "ASIA_WD",
+  "integration": "TEST_TEMPLATE",
+  "integrationType": "TEMPLATE",
+  "owner": "api_user",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "triggerType": "SELF_SERVICE",
+  "customFieldValues": {
+  },
+  "dependencies": 
+  [
+    {
+      "dependencyType": "PROCESSING_TEMPLATE",
+      "name": "4853_WFW",
+      "processingStatus": "COMPLETED",
+      "processingTemplate": "4853_WFW",
+      "processingType": "WORKFLOW",
+      "workflowType": "STANDARD"
+    }
+  ],
+  "timeTriggers": 
+  [
+    {
+      "endTime": 86399999,
+      "repeatInterval": 3600000,
+      "startTime": 0,
+      "timeTriggerType": "DAILY",
+      "timeZone": "Asia/Manila"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "description": "${DESCRIPTION}",
+  "highRiskStatisticMethod": "PERCENT",
+  "highRiskStatisticPeriod": "MONTH",
+  "owner": "Administrator",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "tags": 
+  [
+    "VERIFICATOR"
+  ],
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "designParameters": 
+  [
+    {
+      "defaultValue": "WARNING",
+      "editorType": "TEXT",
+      "name": "SEVERITY",
+      "title": "Severity for Szymon notification - critical, warnin, normal etc."
+    },
+    {
+      "defaultValue": "log_db",
+      "editorType": "TEXT",
+      "name": "LOG_ENDPOINT",
+      "title": "Endpoint of Log Database"
+    },
+    {
+      "defaultValue": "/home/anowapp/verificator_enh/source",
+      "editorType": "TEXT",
+      "name": "SOURCE_DIRECTORY",
+      "title": "Source directory to scan for files"
+    },
+    {
+      "defaultValue": "[{ \t\"OBJECT_JSON\": \"1\", \t\"HOSTNAME_JSON\": \"ANOW1\", \t\"TARGET_DIRECTORY_JSON\": \"/home/anowapp/verificator_enh/target\", \t\"TARGET_FILE_NAME_JSON\": \"regexp:^(.*);\\\\1\", \t\"WORKPATH_JSON\": \"/home/anowapp/verificator_enh/temp\", \t\"MODE_JSON\": \"O\", \t\"EOL_JSON\": \"\", \t\"CODE_JSON\": \"\", \t\"TARGET_CODE_JSON\": \"\" }, { \t\"OBJECT_JSON\": \"2\", \t\"HOSTNAME_JSON\": \"ANOW1\", \t\"TARGET_DIRECTORY_JSON\": \"/home/anowapp/verificator_enh/target2\", \t\"TARGET_FILE_NAME_JSON\": \"regexp:^(.*);\\\\1\", \t\"WORKPATH_JSON\": \"/home/anowapp/verificator_enh/temp2\", \t\"MODE_JSON\": \"O\", \t\"EOL_JSON\": \"\", \t\"CODE_JSON\": \"\", \t\"TARGET_CODE_JSON\": \"\" }, { \t\"OBJECT_JSON\": \"3\", \t\"HOSTNAME_JSON\": \"ANOW1\", \t\"TARGET_DIRECTORY_JSON\": \"/home/anowapp/verificator_enh/target3\", \t\"TARGET_FILE_NAME_JSON\": \"regexp:^(.*);\\\\1\", \t\"WORKPATH_JSON\": \"/home/anowapp/verificator_enh/temp3\", \t\"MODE_JSON\": \"O\", \t\"EOL_JSON\": \"\", \t\"CODE_JSON\": \"\", \t\"TARGET_CODE_JSON\": \"\" }]",
+      "editorType": "TEXT",
+      "name": "TARGET_JSON",
+      "title": "Json with taget parameters"
+    },
+    {
+      "defaultValue": "23:59:59",
+      "editorType": "TEXT",
+      "name": "UNTIL_TIME_FS",
+      "title": "Stop time for FileSensor task"
+    },
+    {
+      "defaultValue": "1202 | LIN_2_LIN | MQ_TRANSFER_O | ",
+      "editorType": "TEXT",
+      "name": "DESCRIPTION",
+      "title": "Items description"
+    },
+    {
+      "defaultValue": "/home/anowapp/verificator_enh/arch",
+      "editorType": "TEXT",
+      "name": "BACKUP_DIRECTORY",
+      "title": "Archive directory on source node"
+    },
+    {
+      "defaultValue": "^.*$",
+      "editorType": "TEXT",
+      "name": "FILE_PATTERN",
+      "title": "Pattern to scan files for on source node"
+    },
+    {
+      "defaultValue": "ANOW1",
+      "editorType": "TEXT",
+      "name": "NOTIFICATION_SOURCE",
+      "title": "Source node for notification"
+    },
+    {
+      "defaultValue": "1",
+      "editorType": "TEXT",
+      "name": "CHECK_GROWTH",
+      "title": "Interval for file growth check test [minutes]"
+    },
+    {
+      "defaultValue": "00:00:30",
+      "editorType": "TEXT",
+      "name": "RUN_INTERVAL",
+      "title": "Interval of File Sensor checks"
+    },
+    {
+      "defaultValue": "ANOW1",
+      "editorType": "TEXT",
+      "name": "SERVER_NODE",
+      "title": "Agent performing transfer action [hostname_FM]"
+    },
+    {
+      "defaultValue": "/home/anowapp/verificator_enh/work",
+      "editorType": "TEXT",
+      "name": "WORK_DIRECTORY",
+      "title": "Working directory for Source"
+    },
+    {
+      "defaultValue": "1202",
+      "editorType": "TEXT",
+      "name": "LINE_ID",
+      "title": "ID of transfer line"
+    },
+    {
+      "defaultValue": "S",
+      "editorType": "TEXT",
+      "hint": "S - Standard G - Growth Check",
+      "name": "MODE",
+      "title": "FileSensor Mode"
+    },
+    {
+      "defaultValue": "mq.endpoint_enhanced",
+      "editorType": "TEXT",
+      "name": "MQ_ENDPOINT",
+      "title": "Endpoint of IBM MQ Agent"
+    },
+    {
+      "defaultValue": "QM1",
+      "editorType": "TEXT",
+      "name": "QMANAGER",
+      "title": "Nazwa Queue Managera"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "SOURCE_CODE",
+      "title": "Source Code Page "
+    },
+    {
+      "defaultValue": "23:59:59",
+      "editorType": "TEXT",
+      "name": "UNTIL_TIME_MQS",
+      "title": "Stop time for MQ sensor task"
+    }
+  ],
+  "items": 
+  [
+    {
+      "highRiskStatisticMethod": "PERCENT",
+      "highRiskStatisticPeriod": "MONTH",
+      "name": "MQ_TRANSFER_Starting_workflow",
+      "processingTemplate": "MQ_TRANSFER_Starting_workflow",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "MQ_TRANSFER_Starting_workflow",
+      "workflowType": "STANDARD"
+    }
+  ]
+}

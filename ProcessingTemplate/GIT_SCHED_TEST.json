@@ -1,0 +1,26 @@
+{
+  "owner": "api_user",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "timeTriggers": 
+  [
+    {
+      "endTime": 86399999,
+      "repeatInterval": 3600000,
+      "startTime": 0,
+      "timeTriggerType": "DAILY",
+      "timeZone": "GMT"
+    },
+    {
+      "endTime": 86399999,
+      "repeatInterval": 3600000,
+      "startTime": 17100000,
+      "timeTriggerType": "REPEATING"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "highRiskStatisticMethod": "PERCENT",
+  "highRiskStatisticPeriod": "MONTH",
+  "owner": "kowalck1",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "tags": 
+  [
+    "PDIL",
+    "JSON2DV"
+  ],
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "items": 
+  [
+    {
+      "highRiskStatisticMethod": "PERCENT",
+      "highRiskStatisticPeriod": "MONTH",
+      "name": "GRP_VCLIN",
+      "processingTemplate": "GRP_VCLIN",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "PARTITION_BY_ATTRIBUTE": "PDIL_FLOW_ID",
+        "SOURCE_SYSTEM": "VCLIN",
+        "STAGEDV_RETENTION_DAYS": "5"
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "owner": "api_user",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "tags": 
+  [
+    "MV"
+  ],
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "items": 
+  [
+    {
+      "name": "echo_test",
+      "processingTemplate": "echo_test",
+      "processingType": "TASK",
+      "serverNodeType": "LINUX",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "taskType": "SH"
+    }
+  ]
+}

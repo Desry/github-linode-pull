@@ -1,0 +1,28 @@
+{
+  "highRiskStatisticMethod": "PERCENT",
+  "highRiskStatisticPeriod": "WEEK",
+  "highRiskThreshold": 5,
+  "owner": "karim.vaiya",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "items": 
+  [
+    {
+      "highRiskStatisticMethod": "PERCENT",
+      "highRiskStatisticPeriod": "WEEK",
+      "highRiskThreshold": 5,
+      "name": "WC_SOPHIS2_STP_TRADES_CHECK",
+      "processingTemplate": "WC_SOPHIS2_STP_TRADES_CHECK",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WC_SOPHIS2_STP_TRADES_CHECK",
+      "workflowType": "CYCLE"
+    }
+  ]
+}

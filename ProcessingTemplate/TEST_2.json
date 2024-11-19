@@ -1,0 +1,12 @@
+{
+  "integration": "AN.IPC.INT.TEMPLATE",
+  "integrationType": "TEMPLATE",
+  "owner": "api_user",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "triggerType": "SELF_SERVICE",
+  "customFieldValues": {
+  }
+}

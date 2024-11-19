@@ -1,0 +1,175 @@
+{
+  "description": "474| T6_O | GLOBUS_E566 | SDJ-239672 SDJ-796416",
+  "highRiskStatisticMethod": "PERCENT",
+  "highRiskStatisticPeriod": "MONTH",
+  "owner": "Administrator",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "tags": 
+  [
+    "TLIVE",
+    "GLOBUS_EOD"
+  ],
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "designParameters": 
+  [
+    {
+      "defaultValue": "/zat1/TLIVE/bnk/bnk.run/BREL566/ARCH",
+      "editorType": "TEXT",
+      "name": "BACKUP_DIRECTORY",
+      "required": true,
+      "title": "Archive directory on source node"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "CHECK_GROWTH",
+      "title": "Interval for file growth check test [minutes]"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "SOURCE_CODE",
+      "title": "Coding page for files on input"
+    },
+    {
+      "defaultValue": "474| T6_O | GLOBUS_E566 | SDJ-239672 SDJ-796416",
+      "editorType": "TEXT",
+      "name": "DESCRIPTION",
+      "required": true,
+      "title": "Item description"
+    },
+    {
+      "defaultValue": "^\\d{8}_\\d{4}\\.[Ee]566$",
+      "editorType": "TEXT",
+      "name": "FILE_PATTERN",
+      "required": true,
+      "title": "Pattern to scan files for on source node"
+    },
+    {
+      "defaultValue": "474",
+      "editorType": "TEXT",
+      "name": "LINE_ID",
+      "required": true,
+      "title": "Brelink line ID"
+    },
+    {
+      "defaultValue": "log_database",
+      "editorType": "TEXT",
+      "name": "LOG_ENDPOINT",
+      "required": true,
+      "title": "Endpoint of Log Database"
+    },
+    {
+      "defaultValue": "S",
+      "editorType": "TEXT",
+      "hint": "S - Standard G - Growth Check",
+      "name": "MODE",
+      "required": true,
+      "title": "Running mode"
+    },
+    {
+      "defaultValue": "pre01testmqft1_ep",
+      "editorType": "TEXT",
+      "name": "MQ_ENDPOINT",
+      "required": true,
+      "title": "Endpoint of IBM MQ Agent"
+    },
+    {
+      "defaultValue": "GLOBUS",
+      "editorType": "TEXT",
+      "name": "NOTIFICATION_SOURCE",
+      "required": true,
+      "title": "Source node for notification"
+    },
+    {
+      "defaultValue": "TLIVE",
+      "editorType": "TEXT",
+      "name": "QMANAGER",
+      "required": true,
+      "title": "MQ manager name"
+    },
+    {
+      "defaultValue": "00:00:20",
+      "editorType": "TEXT",
+      "name": "RUN_INTERVAL",
+      "required": true,
+      "title": "Interval of File Sensor checks"
+    },
+    {
+      "defaultValue": "GLOBUS",
+      "editorType": "TEXT",
+      "name": "SERVER_NODE",
+      "required": true,
+      "title": "Agent performing transfer action [hostname_FM]"
+    },
+    {
+      "defaultValue": "Warning",
+      "editorType": "TEXT",
+      "name": "SEVERITY",
+      "title": "Severity for Szymon notification - critical, warnin, normal etc."
+    },
+    {
+      "defaultValue": "/zat1/TLIVE/bnk/bnk.run/BREL566/BRELINK",
+      "editorType": "TEXT",
+      "name": "SOURCE_DIRECTORY",
+      "required": true,
+      "title": "Source directory to scan for files"
+    },
+    {
+      "defaultValue": "[{\"OBJECT_JSON\":1,\"CODE_JSON\":\"\",\"TARGET_CODE_JSON\":\"\",\"EOL_JSON\":\"\",\"HOSTNAME_JSON\":\"WAR01MQTEST2\",\"MODE_JSON\":\"O\",\"TARGET_DIRECTORY_JSON\":\"\\\\\\\\war01dpstlive\\\\DPS\\\\importE566\",\"TARGET_FILE_NAME_JSON\":\"regexp:^(.+)$;\\\\1\",\"WORKPATH_JSON\":\"E:\\\\ANOW_TEMP_TLIVE\"}]",
+      "editorType": "TEXT",
+      "name": "TARGET_JSON",
+      "required": true,
+      "title": "JSON with taget parameters"
+    },
+    {
+      "defaultValue": "23:00:00",
+      "editorType": "TEXT",
+      "name": "UNTIL_TIME_FS",
+      "required": true,
+      "title": "Stop time for Schedule"
+    },
+    {
+      "defaultValue": "23:00:00",
+      "editorType": "TEXT",
+      "name": "UNTIL_TIME_MQS",
+      "required": true,
+      "title": "Stop time for Schedule"
+    },
+    {
+      "defaultValue": "/zat1/TLIVE/bnk/bnk.brelink/brelink.temp/SCHEDULEIN.AGENT",
+      "editorType": "TEXT",
+      "name": "WORK_DIRECTORY",
+      "required": true,
+      "title": "Work directory"
+    }
+  ],
+  "items": 
+  [
+    {
+      "highRiskStatisticMethod": "PERCENT",
+      "highRiskStatisticPeriod": "MONTH",
+      "name": "MQ_TRANSFER_Starting_workflow",
+      "processingTemplate": "MQ_TRANSFER_Starting_workflow",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "MQ_TRANSFER_Starting_workflow",
+      "workflowType": "STANDARD"
+    }
+  ],
+  "timeTriggers": 
+  [
+    {
+      "calendar": "GLOBUS_WORKING_DAYS",
+      "endTime": 86399999,
+      "repeatInterval": 3600000,
+      "startTime": 361000,
+      "timeTriggerType": "DAILY",
+      "timeZone": "GMT"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "owner": "api_user",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "designParameters": 
+  [
+    {
+      "addNewValues": true,
+      "editorType": "DICTIONARY",
+      "name": "dict_test",
+      "optionDataSource": "TEST_DICT",
+      "title": "dict_test"
+    }
+  ],
+  "timeTriggers": 
+  [
+    {
+      "endTime": 86399999,
+      "repeatInterval": 3600000,
+      "startTime": 0,
+      "timeTriggerType": "DAILY",
+      "timeZone": "Asia/Manila"
+    }
+  ]
+}

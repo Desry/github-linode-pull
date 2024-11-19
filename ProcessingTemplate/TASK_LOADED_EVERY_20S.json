@@ -1,0 +1,22 @@
+{
+  "owner": "api_user",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "items": 
+  [
+    {
+      "name": "sleep_30s",
+      "processingTemplate": "sleep_30s",
+      "processingType": "TASK",
+      "serverNodeType": "LINUX",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "taskType": "SH"
+    }
+  ]
+}

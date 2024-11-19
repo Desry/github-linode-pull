@@ -1,0 +1,69 @@
+{
+  "owner": "api_user",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "items": 
+  [
+    {
+      "name": "5172_SUB_WFW",
+      "processingTemplate": "5172_SUB_WFW",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "workflowType": "STANDARD"
+    },
+    {
+      "name": "5075_TEST",
+      "processingTemplate": "5075_TEST",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "workflowType": "STANDARD"
+    },
+    {
+      "name": "NESTED_WFW",
+      "processingTemplate": "NESTED_WFW",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "workflowType": "STANDARD"
+    },
+    {
+      "name": "SUB_WFW_1_WITH_SLEEP_TASKS",
+      "processingTemplate": "SUB_WFW_1_WITH_SLEEP_TASKS",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "workflowType": "STANDARD"
+    },
+    {
+      "name": "SUB_WFW_2_WITH_WAIT_TASKS",
+      "processingTemplate": "SUB_WFW_2_WITH_WAIT_TASKS",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "workflowType": "STANDARD"
+    },
+    {
+      "name": "FE_WFW",
+      "processingTemplate": "FE_WFW",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "workflowType": "FOR_EACH"
+    },
+    {
+      "name": "WFW_WITH_SUB",
+      "processingTemplate": "WFW_WITH_SUB",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "workflowType": "STANDARD"
+    }
+  ]
+}

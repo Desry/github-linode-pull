@@ -1,0 +1,34 @@
+{
+  "folder": "SYSTEM",
+  "owner": "VP_API",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "tags": 
+  [
+    "WMOS"
+  ],
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "items": 
+  [
+    {
+      "name": "MASTER_WFW_UNDER_MASTER_SCHED",
+      "processingTemplate": "MASTER_WFW_UNDER_MASTER_SCHED",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "workflowType": "STANDARD"
+    }
+  ],
+  "timeTriggers": 
+  [
+    {
+      "startTime": 0,
+      "timeTriggerType": "DAILY",
+      "timeZone": "Asia/Kuala_Lumpur"
+    }
+  ]
+}

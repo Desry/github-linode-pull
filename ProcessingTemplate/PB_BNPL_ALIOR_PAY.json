@@ -1,0 +1,81 @@
+{
+  "description": "Raport pokazujący sprzedaż BNPL (Alior Pay) w zakresie uruchomionych umów oraz odroczonych transakcji",
+  "highRiskStatisticMethod": "PERCENT",
+  "highRiskStatisticPeriod": "MONTH",
+  "integration": "INT_DWH_SELF_SERVICE_NEW_IMPORTANT_TMPLT",
+  "integrationType": "TEMPLATE",
+  "owner": "pi20181",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "tags": 
+  [
+    "DWH",
+    "SELF_SERVICE"
+  ],
+  "triggerType": "SELF_SERVICE",
+  "customFieldValues": {
+  },
+  "inputFormValues": {
+    "BEZ_NAGLOWKA": "Nie",
+    "GENERUJ_PLIK": "Nie",
+    "IGNORUJ_METADANE": "Tak",
+    "KODOWANIE": "LATIN1250_1A0",
+    "KONWERSJA_ZNAKOW_KONCA_LINI": "Nie",
+    "MASKA_NAZWY_PLIKU": "${DATA_SPR_TXT}_RaportName_Vxx",
+    "PONOWNE_URUCHOMIENIE": "Tak",
+    "REPORT_NAME": "PB_BNPL_ALIOR_PAY",
+    "ROZSZERZENIE": "dat",
+    "SEPARATOR": "|",
+    "SPAKUJ_PLIK_WYNIKOWY": "Nie",
+    "SQL_CODE": "\n\n---pobranie listy rachunków otwartych do dnia raportowego\n/*lista umów oraz limitów - stan na datę raportową*/\n--drop table BAZA_UMOWY_DT_RAP;\nCREATE VOLATILE MULTISET TABLE BAZA_UMOWY_DT_RAP AS\n(\nSEL\nlnn.CID\n,lnn.ACN\n,lnn.ZDTNT\n,lnn.ODD\n,lnn.PRODTYPE\n,lnn.DTC\n,lnn.STAT\n,lnn.ZARGNUM\n,lnz.CCL\n,lnz.BAL\n,lnz.CRLMT\n,lnn.ZTITLE5\n,lnn.auptcid\n,lnn.zsoffer\n,lnn.mdt\n/*,lnz.UDBAL\n,lnz.AVLBAL*/\nFROM vd_wi_pl.ibs_ln_n AS lnn LEFT JOIN vd_wi_pl.ibs_ln_z AS lnz \n\t\t\t ON lnn.cid=lnz.cid\nWHERE 1=1\n\t\t\t\t AND lnn.prodtype IN (5300,5310) /*Alior Pay i plany */\n\t\t\t\t AND DATE${DATA_SPR} BETWEEN lnn.start_dt AND lnn.end_dt\n\t\t\t\t AND DATE${DATA_SPR} BETWEEN lnz.start_dt AND lnz.end_dt\n)\nWITH DATA\nPRIMARY INDEX(CID)\nON COMMIT PRESERVE ROWS;\n--SEL * FROM BAZA_UMOWY_DT_RAP where ccl=530094984614\n\n\n\n---lista ROR na potrzeby dociągnięcia współwłaścicieli\nCREATE VOLATILE MULTISET TABLE LISTA_ROR_AKTYWNE AS\n(\nSEL \ncid \nFROM vd_wi_pl.ibs_dep_n \nWHERE 1=1\n\t\t\t\tAND ${DATA_SPR}  BETWEEN start_dt AND end_dt\n\t\t\t\tAND STAT=0 \n\t\t\t\tAND akt_hd=1 \n\t\t\t\tAND prodtype IN (4000,4200) /*tylko ROR*/\n)\nWITH DATA\nPRIMARY INDEX(CID)\nON COMMIT PRESERVE ROWS;\n\nCREATE VOLATILE MULTISET TABLE KLIENCI_ROR_POSIADACZE AS \n(\nSEL \nA.CID\n,A.ACN\nFROM \nfull_vd_wi_pl.ibs_relcif a\nWHERE 1=1\n\t\t\t\tAND acn IN (SEL acn FROM BAZA_UMOWY_DT_RAP GROUP BY 1) /*wybór klientów posiadających alior pay*/\n\t\t\t\tAND cid IN (SEL cid FROM LISTA_ROR_AKTYWNE) /*zawężenie do rachunków z listy aktywnych*/\n\t\t\t\tAND DATE${DATA_SPR}  BETWEEN start_dt AND end_dt\n\t\t\t\tAND zgrole IN (1,3) /*właściciele*/\n\t\t\t\tAND akt_hd=1\n) \nWITH DATA \nPRIMARY INDEX(cid) \nON COMMIT PRESERVE ROWS;\n---  sel * from KLIENCI_ROR_POSIADACZE\n\n--pogrupowanie ile ROR ma klient\nCREATE VOLATILE MULTISET TABLE KLIENCI_ROR_ILOSC AS \n(\nSEL \nACN\n,Count(DISTINCT cid) AS ILE_ROR_KLIENT\nFROM \nKLIENCI_ROR_POSIADACZE\nGROUP BY 1\n) \nWITH DATA \nPRIMARY INDEX(ACN) \nON COMMIT PRESERVE ROWS;\n\n\n\n--wyliczenie DPD\nCREATE VOLATILE MULTISET TABLE DPD_WYLICZONE AS \n(\nSEL\nCID\n,Max(dpd) AS MAX_DPD  \nFROM VD64_DM_RK_pl.V_T64001_RACHUNEK\nWHERE DATA_SPR BETWEEN OAdd_Months(DATE${DATA_SPR},-12)+1 AND DATE${DATA_SPR}\nAND cid IN (SEL cid FROM BAZA_UMOWY_DT_RAP)\nGROUP BY 1\n) \nWITH DATA \nPRIMARY INDEX(cid) \nON COMMIT PRESERVE ROWS;\n--   sel * from DPD_WYLICZONE;\n\n\n--wyliczone dpd max w ramach linii\nCREATE VOLATILE MULTISET TABLE DPD_WYLICZONE_CCL AS \n(\nSEL \nCoalesce(a.ccl,a.cid) AS CCL\n,Max(MAX_DPD) AS DPD_MAX\nFROM BAZA_UMOWY_DT_RAP AS a LEFT JOIN DPD_WYLICZONE AS b ON a.cid=b.cid \nGROUP BY 1\n) \nWITH DATA \nPRIMARY INDEX(CCL) \nON COMMIT PRESERVE ROWS;\n\n\n--wyliczenie ilości zmian rachunków do spłaty\nCREATE VOLATILE MULTISET TABLE RACH_DO_SPLATY_ZMIANY AS \n(\nSEL\nlnn.CID\n,Count(DISTINCT lnn.auptcid) AS ILE_ZMIAN_RACH_DO_AS\nFROM vd_wi_pl.ibs_ln_n AS lnn\nWHERE 1=1\n\t\t\t\tAND DATE${DATA_SPR} BETWEEN OAdd_Months(DATE${DATA_SPR},-12)+1 AND DATE${DATA_SPR}\n\t\t\t\tAND cid IN (SEL cid FROM BAZA_UMOWY_DT_RAP)\n\t\t\t\tAND auptcid IS NOT NULL\n\t\tGROUP BY 1\n) \nWITH DATA \nPRIMARY INDEX(cid) \nON COMMIT PRESERVE ROWS;\n--SEL * FROM RACH_DO_SPLATY_ZMIANY;\n\n\n--wyliczone zmiany w ramach linii\nCREATE VOLATILE MULTISET TABLE RACH_DO_SPLATY_ZMIANY_CCL AS \n(\nSEL \nCoalesce(a.ccl,a.cid) AS CCL\n,CASE WHEN Nvl(Max(ILE_ZMIAN_RACH_DO_AS),0)>1 THEN Nvl(Max(ILE_ZMIAN_RACH_DO_AS),0)-1 ELSE 0 END AS ILE_ZMIAN_RACH_DO_AS\nFROM BAZA_UMOWY_DT_RAP AS a LEFT JOIN RACH_DO_SPLATY_ZMIANY AS b ON a.cid=b.cid \nGROUP BY 1\n) \nWITH DATA \nPRIMARY INDEX(CCL) \nON COMMIT PRESERVE ROWS;\n\n\n\n\n--wyliczenie ilości zmian rachunków do spłaty\nCREATE VOLATILE MULTISET TABLE TRX_ROZLOZONE_PARAMETRY AS \n(\nSEL\nCCL\n,Sum(CASE WHEN ODD BETWEEN OAdd_Months(DATE${DATA_SPR},-12)+1 AND DATE${DATA_SPR} THEN 1 ELSE 0 end) AS ILE_ODR_TRX_12_MIES\n,Sum(CASE WHEN ODD BETWEEN OAdd_Months(DATE${DATA_SPR},-12)+1 AND DATE${DATA_SPR} THEN CRLMT ELSE 0 end) AS AMT_ODR_TRX_12_MIES\n,Max(CASE WHEN ODD BETWEEN OAdd_Months(DATE${DATA_SPR},-12)+1 AND DATE${DATA_SPR} THEN CRLMT ELSE 0 end) AS AMT_MAX_ODR_TRX_12_MIES\n,Min(CASE WHEN ODD BETWEEN OAdd_Months(DATE${DATA_SPR},-12)+1 AND DATE${DATA_SPR} THEN CRLMT ELSE 0 end) AS AMT_MIN_ODR_TRX_12_MIES\n,Avg(CASE WHEN ODD BETWEEN OAdd_Months(DATE${DATA_SPR},-12)+1 AND DATE${DATA_SPR} THEN CRLMT ELSE 0 end) AS AMT_AVG_ODR_TRX_12_MIES\n,Sum(CASE WHEN ODD BETWEEN OAdd_Months(DATE${DATA_SPR},-12)+1 AND DATE${DATA_SPR}  AND zsoffer='594' /*darmowe pierwsze 31 dni*/ AND STAT=4 THEN 1 ELSE 0 END) AS ILE_TRX_SPLACONYCH_30_DNI_PROMO_12_MIES\n,Sum(CASE WHEN ODD BETWEEN OAdd_Months(DATE${DATA_SPR},-12)+1 AND DATE${DATA_SPR}  AND zsoffer='595' /*rozlozoenie na raty*/ THEN 1 ELSE 0 END) AS ILE_TRX_ROZLOZONYCH_NA_RATY_12_MIES\n,Sum(CASE WHEN ODD BETWEEN OAdd_Months(DATE${DATA_SPR},-12)+1 AND DATE${DATA_SPR}  AND zsoffer='595' /*rozlozoenie na raty*/ AND DTC<MDT THEN 1 ELSE 0 END) AS ILE_TRX_ROZLOZONYCH_NA_RATY_WCS_12_MIES\n,Max(dpd.MAX_DPD) AS MAX_DPD_12_MIES\nFROM BAZA_UMOWY_DT_RAP AS baza LEFT JOIN DPD_WYLICZONE AS dpd ON baza.cid=dpd.cid\nWHERE 1=1\n\t\t\t\tAND prodtype=5310\nGROUP BY  CCL\n) \nWITH DATA \nPRIMARY INDEX(CCL) \nON COMMIT PRESERVE ROWS;\n\n-----wyznaczenie najświeższych rekordów\nCREATE VOLATILE MULTISET TABLE CCL_OSTATNIA_TRX\nAS\n(\nSEL \na.*\n,Row_Number() Over (PARTITION BY a.ccl ORDER BY odd DESC,cid DESC) AS VAL\nFROM BAZA_UMOWY_DT_RAP AS a \nWHERE 1=1\n\t\t\t\tAND prodtype=5310\n)\nWITH DATA\nPRIMARY INDEX(CID)\nON COMMIT PRESERVE ROWS;\n\n---usunięcie starych rekordów\nDEL FROM CCL_OSTATNIA_TRX WHERE VAL<>1;\n--sel * from CCL_OSTATNIA_TRX;\n\n/*--wyliczenie tytułów operacji\nCREATE VOLATILE MULTISET TABLE CCL_TYPY_TRX AS \n(\nSEL\nCoalesce(ccl,cid) AS CCL\n,ZTITLE5\nFROM BAZA_UMOWY_DT_RAP\nWHERE ztitle5 IS NOT NULL\nGROUP BY 1,2\n) \nWITH DATA \nPRIMARY INDEX(CCL) \nON COMMIT PRESERVE ROWS;\n--sel * from CCL_TYPY_TRX;\n\n--transpozycja i sklejenie danych o typach transakcji\nCREATE VOLATILE MULTISET TABLE CCL_TYPY_TRX_SKLEJ AS \n(\nSEL \nCCL\n,Trim(Trailing ',' FROM Cast(XmlAgg(ZTITLE5 || ',') AS VARCHAR(10000) CHARACTER SET Unicode)) AS TYPY_ODROCZONE\nFROM CCL_TYPY_TRX AS a\nWHERE ZTITLE5 IS NOT NULL\nGROUP BY 1\n) \nWITH DATA \nPRIMARY INDEX(CCL) \nON COMMIT PRESERVE ROWS;*/\n\n\n--DROP TABLE trx_blp\nCREATE VOLATILE MULTISET TABLE\ntrx_blp\nAS\n(\nSEL\napl.id AS id_umowy\n,blp.id AS id_trx\n,To_Number(Right(Substr(blp.transaction_id,(Instr(blp.transaction_id,'_',1)+1),(Instr(blp.transaction_id,'_',Instr(blp.transaction_id,'_',1)+1,1)-(Instr(blp.transaction_id,'_',1)+1))),12)) AS cid\n,To_Number(Right(credit_limit_account_number,12)) AS CCL\n,blp.seq_number\n,blp.amount\n,apl.application_number\n,apl.cif\nFROM full_vd_wi_pl.BLP_BNPL_TRANSACTION AS blp LEFT JOIN full_vd_wi_pl.BLP_BNPL_APPLICATION AS apl\nON blp.application_id=apl.id\nWHERE 1=1\n\t\t\t\tAND DATE${DATA_SPR} BETWEEN blp.start_dt AND blp.end_dt\n\t\t\t\tAND DATE${DATA_SPR} BETWEEN apl.start_dt AND apl.end_dt\n\t\t\t\tAND apl.status='UU'\n)\nWITH DATA\nPRIMARY INDEX (id_trx)\nON COMMIT PRESERVE ROWS;\n\n---zebranie statystyk\nCOLLECT STATS COLUMN (cid) ON trx_blp;\n\n\n--zrzucenie trx z op_details dla przyśpieszenia kodu\n--drop table op_details\nCREATE VOLATILE MULTISET TABLE\nop_details\nAS\n(\nSEL\nop.cid\n,op.tseq\n,op.spr\n,op.tamt_main\n,op.DATETIME\nFROM vd_wi_pl.ibs_op_details AS op\nWHERE 1=1\n\t\t\t\tAND op.cid IN (SEL DISTINCT cid FROM trx_blp)\n\t\t\t\tAND tjd>=DATE'2022-11-01' /*wcześniej nie było produktu*/\n\n)\nWITH DATA\nPRIMARY INDEX (cid,tseq)\nON COMMIT PRESERVE ROWS;\n\n\n\n--drop table trx_blp_op_details\nCREATE VOLATILE MULTISET TABLE\ntrx_blp_op_details\nAS\n(\nSEL\nblp.*\n,op.spr\n,op.tamt_main\n,op.datetime\n,To_Char(datetime)||'-'||To_Char(spr) AS klucz_mart_trans\nFROM trx_blp AS blp LEFT JOIN op_details AS op\nON blp.cid=op.cid AND blp.seq_number=op.tseq\n)\nWITH DATA\nPRIMARY INDEX (id_trx)\nON COMMIT PRESERVE ROWS;\n--sel * from trx_blp_op_details;\n\n---zebranie statystyk\nCOLLECT STATS COLUMN (klucz_mart_trans) ON trx_blp_op_details;\n\n--drop table mart_trans_analityka;\nCREATE VOLATILE MULTISET TABLE\nmart_trans_analityka\nAS\n(\nSEL\ntrans_id\n,kanal\n,operacja\nFROM VD68_TW_PL.T68001_TRANS_Wynagr_Tytul \nWHERE trans_id IN (SEL klucz_mart_trans FROM trx_blp_op_details)\n\t\t\t\tAND data_spr>=DATE'2022-11-01' /*wcześniej nie było produktu*/\n)\nWITH DATA\nPRIMARY INDEX (trans_id)\nON COMMIT PRESERVE ROWS;\n\n--drop table trx_blp_analityka\nCREATE VOLATILE MULTISET TABLE\ntrx_blp_analityka\nAS\n(SEL\na.ccl\n,a.application_number\n,a.cif\n,a.id_trx\n,kanal\n,operacja\n,tamt_main\nFROM trx_blp_op_details AS a LEFT JOIN  mart_trans_analityka AS trans\nON a.klucz_mart_trans=trans.trans_id\n)\nWITH DATA\nPRIMARY INDEX (id_trx)\nON COMMIT PRESERVE ROWS;\n\n---drop table trx_blp_syntetyka\nCREATE VOLATILE MULTISET TABLE\ntrx_blp_syntetyka\nAS\n(\nSEL\nccl\n,cif\n--,kanal\n,operacja\n,Count(1) AS ILE\n,operacja ||' x'||To_Char(ILE) AS OPIS_TRX\nFROM trx_blp_analityka AS a \nGROUP BY 1,2,3\n)\nWITH DATA\nPRIMARY INDEX (ccl)\nON COMMIT PRESERVE ROWS;\n\n\nCREATE VOLATILE MULTISET TABLE TYPY_TRX_SKLEJ AS \n(\nSEL \nccl\n,Trim(Trailing ',' FROM Cast(XmlAgg(OPIS_TRX || ',') AS VARCHAR(10000) CHARACTER SET Unicode)) AS TYPY_ODROCZONE\nFROM trx_blp_syntetyka AS a\nGROUP BY 1\n) \nWITH DATA \nPRIMARY INDEX(ccl) \nON COMMIT PRESERVE ROWS;\n\n\n\n\n\n\n-------RAPORT 1 FINALNA TABELA\n\nCREATE VOLATILE MULTISET TABLE final_rap_1\nAS\n(\nSEL\nDATE${DATA_SPR} AS DATA_SPR\n,baza.CID AS RACHUNEK_LIMIT\n,baza.ACN AS ACN\n,baza.CRLMT AS KWOTA_LIMIT\n,baza.ZDTNT AS DATA_UMOWA\n,baza.ODD AS DATA_URUCHOMIENIA\n,ror.ILE_ROR_KLIENT\n,ost.ODD AS DT_OST_ODR_TRX\n,ost.CRLMT AS AMT_OST_ODR_TRX\n,trx.ILE_ODR_TRX_12_MIES\n,trx.AMT_ODR_TRX_12_MIES\n,trx.AMT_MAX_ODR_TRX_12_MIES\n,trx.AMT_MIN_ODR_TRX_12_MIES\n,trx.AMT_AVG_ODR_TRX_12_MIES\n,trx.ILE_TRX_SPLACONYCH_30_DNI_PROMO_12_MIES\n,trx.ILE_TRX_ROZLOZONYCH_NA_RATY_12_MIES\n,trx.ILE_TRX_ROZLOZONYCH_NA_RATY_WCS_12_MIES\n,zm.ILE_ZMIAN_RACH_DO_AS\n,dpd.DPD_MAX\n,skl.TYPY_ODROCZONE\nFROM BAZA_UMOWY_DT_RAP AS baza LEFT JOIN TRX_ROZLOZONE_PARAMETRY AS trx ON baza.cid=trx.ccl\n\t\t\t LEFT JOIN KLIENCI_ROR_ILOSC AS ror ON baza.acn=ror.acn\n\t\t\t LEFT JOIN CCL_OSTATNIA_TRX AS ost ON baza.cid=ost.ccl\n\t\t\t LEFT JOIN RACH_DO_SPLATY_ZMIANY_CCL AS zm ON baza.cid=zm.ccl\n\t\t\t LEFT JOIN DPD_WYLICZONE_CCL AS dpd ON baza.cid=dpd.ccl\n\t\t\t LEFT JOIN TYPY_TRX_SKLEJ AS skl ON baza.cid=skl.ccl\nWHERE 1=1\n\t\t\t\tAND baza.prodtype=5300\n)\nWITH DATA\nPRIMARY INDEX(DATA_SPR,RACHUNEK_LIMIT)\nON COMMIT PRESERVE ROWS;\n\n\n\nDELETE FROM ${DB81}.PB_BNPL_ALIOR_PAY_UMOWY WHERE data_spr=DATE${DATA_SPR};\n\nINSERT INTO ${DB81}.PB_BNPL_ALIOR_PAY_UMOWY SELECT * FROM final_rap_1 WHERE data_spr=DATE${DATA_SPR};\n\t\t\t\t \n",
+    "TABLE_NAME": null,
+    "ZNAK_KROPKI": ","
+  },
+  "actions": 
+  [
+    {
+      "processingActionType": "NOTIFY_GROUP",
+      "processingEventCategory": "PROCESSING",
+      "processingEventType": "PROCESSING_FAILED",
+      "processingCommand": {
+        "notificationGroup": "PI20181_EMAIL",
+        "notificationMessageTemplate": "MAIL_BASE"
+      }
+    }
+  ],
+  "dependencies": 
+  [
+    {
+      "dependencyType": "PROCESSING_TEMPLATE",
+      "name": "SRV_IMPORT_S01_IBS",
+      "parent": "413a391e-d1e0-456e-a551-ada8f40bbf14",
+      "processingStatus": "COMPLETED",
+      "processingTemplate": "SRV_IMPORT_S01_IBS",
+      "processingType": "WORKFLOW",
+      "timestampCalendar": "WORK_DAY_FOR_PUBLISH_DATE",
+      "timestampRelation": "IN_CALENDAR",
+      "workflowType": "STANDARD"
+    },
+    {
+      "dependencyType": "PROCESSING_TEMPLATE",
+      "name": "SRV_IMPORT_S221_BLP_BNPL",
+      "parent": "413a391e-d1e0-456e-a551-ada8f40bbf14",
+      "processingStatus": "COMPLETED",
+      "processingTemplate": "SRV_IMPORT_S221_BLP_BNPL",
+      "processingType": "WORKFLOW",
+      "timestampCalendar": "WORK_DAY_FOR_PUBLISH_DATE",
+      "timestampRelation": "IN_CALENDAR",
+      "workflowType": "STANDARD"
+    },
+    {
+      "dependencyType": "AND",
+      "groupId": "413a391e-d1e0-456e-a551-ada8f40bbf14",
+      "name": "AND",
+      "processingStatus": "COMPLETED",
+      "processingType": "TRIGGER",
+      "triggerType": "SELF_SERVICE"
+    }
+  ]
+}

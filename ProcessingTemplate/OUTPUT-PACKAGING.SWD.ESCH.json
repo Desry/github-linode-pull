@@ -1,0 +1,181 @@
+{
+  "description": "SWD event schedule for rest api call from GSN",
+  "folder": "SWD",
+  "owner": "rrogozin",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "tags": 
+  [
+    "SWD"
+  ],
+  "triggerType": "EVENT",
+  "customFieldValues": {
+  },
+  "designParameters": 
+  [
+    {
+      "editorType": "TEXT",
+      "name": "U_PACKAGE_NAME",
+      "title": "Package name"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "PACKAGE_ID",
+      "title": "Package ID"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_SOFTWARE_TITLE",
+      "title": "Software title"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "PACKAGE_TYPE",
+      "title": "Package type"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_REQUEST_SCOPE_BU",
+      "title": "U REQUEST SCOPE BU"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_REQUEST_SCOPE_COUNTRY",
+      "title": "REQUEST SCOPE COUNTRY"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_REQUEST_SCOPE_CATEGORY",
+      "title": "Request scope category"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_PRG_AD_GROUP_INSTALL",
+      "title": "prg ad group install"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_KUL_AD_GROUP_INSTALL",
+      "title": "kul ad group install"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_PHX_AD_GROUP_INSTALL",
+      "title": "phx ad group install"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_PRG_AD_GROUP_UNINSTALL",
+      "title": "prg ad group uninstall"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_KUL_AD_GROUP_UNINSTALL",
+      "title": "kul ad group uninstall"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_PHX_AD_GROUP_UNINSTALL",
+      "title": "phx ad group uninstall"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_TARGET_PLATFORM",
+      "title": "target platform"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_FTP_UAT_LOCATION",
+      "title": "ftp uat location"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_FTP_PRODUCTION_LOCATION",
+      "title": "ftp production location"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_DEPENDENCIES",
+      "title": "dependencies"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_AD_GROUPS_CREATION",
+      "title": "ad groups creation"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_UAT_MACHINE",
+      "title": "uat machine"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_UAT_STATUS",
+      "title": "uat status"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_REBOOT_REQUIRED",
+      "title": "reboot required"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_ORIGINAL_PACKAGE",
+      "title": "original package"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_DEPENDENT_PACKAGES",
+      "title": "dependent packages"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_SUPERSEDE",
+      "title": "supersede"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_PACKAGE_STATE",
+      "title": "package state"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_SUPPORTED_OS",
+      "title": "supported os"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_SOFTWARE_VERSION",
+      "title": "Software Version"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_PACKAGE_DETECT_VAL_64_BIT",
+      "title": "package detection 64 bit"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_PACKAGE_DETECT_VAL_32_BIT",
+      "title": "package detection 32 bit"
+    },
+    {
+      "editorType": "TEXT",
+      "name": "U_SOFTWARE_MANUFACTURER",
+      "title": "software manufacturer"
+    }
+  ],
+  "items": 
+  [
+    {
+      "name": "echo_test",
+      "processingTemplate": "echo_test",
+      "processingType": "TASK",
+      "serverNodeType": "LINUX",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "taskType": "SH"
+    }
+  ]
+}

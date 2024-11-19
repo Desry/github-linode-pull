@@ -1,0 +1,33 @@
+{
+  "description": "Monday to Friday",
+  "highRiskStatisticMethod": "PERCENT",
+  "highRiskStatisticPeriod": "WEEK",
+  "highRiskThreshold": 5,
+  "owner": "tomasz.bartos",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "tags": 
+  [
+    "EUR"
+  ],
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "items": 
+  [
+    {
+      "highRiskStatisticMethod": "PERCENT",
+      "highRiskStatisticPeriod": "WEEK",
+      "highRiskThreshold": 5,
+      "name": "WC_EUFFI_CREATE_BATCH",
+      "processingTemplate": "WC_EUFFI_CREATE_BATCH",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WC_EUFFI_CREATE_BATCH",
+      "workflowType": "CYCLE"
+    }
+  ]
+}

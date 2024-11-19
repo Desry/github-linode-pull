@@ -1,0 +1,1352 @@
+{
+  "description": "Schedule for CHN daily batch @23:30",
+  "passBy": true,
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "items": 
+  [
+    {
+      "name": "WF_SPT_CHN_DM_DERIVED_NF_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_DERIVED_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_DERIVED_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_S2B_F06_DLY",
+      "processingTemplate": "WF_GLS_CHN_S2B_F06_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_S2B_F06_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_AC_DLY",
+      "processingTemplate": "WF_GLS_CHN_AC_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_AC_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_GLOBAL_DM_POPULATE_DLY",
+      "processingTemplate": "WF_FDW_CHN_GLOBAL_DM_POPULATE_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_GLOBAL_DM_POPULATE_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_MANUAL_POST_DLY",
+      "processingTemplate": "WF_GLS_CHN_MANUAL_POST_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_MANUAL_POST_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_REVAL_PP_DLY",
+      "processingTemplate": "WF_GLS_CHN_REVAL_PP_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_REVAL_PP_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_AEG_CHN_N11_DLY",
+      "processingTemplate": "WF_AEG_CHN_N11_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_AEG_CHN_N11_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_S2B_CHN_B12_INFA_PROCESSING_DLY",
+      "processingTemplate": "WF_S2B_CHN_B12_INFA_PROCESSING_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_S2B_CHN_B12_INFA_PROCESSING_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_HIST_PS_STAT_DLY",
+      "processingTemplate": "WF_FDW_CHN_HIST_PS_STAT_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_HIST_PS_STAT_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_TRADE_NF_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_TRADE_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_TRADE_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_FACILITY_NF_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_FACILITY_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_FACILITY_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_HIST_RISK_NF_DLY",
+      "processingTemplate": "WF_FDW_CHN_HIST_RISK_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_HIST_RISK_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_LRV_RECLASS_CP_DLY",
+      "processingTemplate": "WF_GLS_CHN_LRV_RECLASS_CP_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_LRV_RECLASS_CP_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_INSTRUMENT_NF_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_INSTRUMENT_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_INSTRUMENT_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_AEG_CHN_C20_DLY",
+      "processingTemplate": "WF_AEG_CHN_C20_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_AEG_CHN_C20_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_NVISION_DLY",
+      "processingTemplate": "WF_GLS_CHN_NVISION_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_NVISION_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_AEG_CHN_DLY",
+      "processingTemplate": "WF_AEG_CHN_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_AEG_CHN_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_AEG_CHN_M09_DLY",
+      "processingTemplate": "WF_AEG_CHN_M09_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_AEG_CHN_M09_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_S2B_GLB_DLY",
+      "processingTemplate": "WF_GLS_CHN_S2B_GLB_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_S2B_GLB_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_S2B_CHN_DLY",
+      "processingTemplate": "WF_S2B_CHN_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_S2B_CHN_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_COST_ALLOC_DLY",
+      "processingTemplate": "WF_GLS_CHN_COST_ALLOC_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_COST_ALLOC_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_LRV_RECLASS_PP_DLY",
+      "processingTemplate": "WF_GLS_CHN_LRV_RECLASS_PP_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_LRV_RECLASS_PP_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_NON_FIN_DLY",
+      "processingTemplate": "WF_FDW_CHN_NON_FIN_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_NON_FIN_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_RECS_DLY",
+      "processingTemplate": "WF_GLS_CHN_RECS_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_RECS_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_C20_INB_CAL_FX_DLY",
+      "processingTemplate": "WF_FDW_CHN_C20_INB_CAL_FX_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_C20_INB_CAL_FX_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_DLY",
+      "processingTemplate": "WF_GLS_CHN_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_ALL_DLY",
+      "processingTemplate": "WF_FDW_CHN_ALL_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_ALL_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_HIST_INSTRUMENT_NF_DLY",
+      "processingTemplate": "WF_FDW_CHN_HIST_INSTRUMENT_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_HIST_INSTRUMENT_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_CORE_DER_BAL_DLY",
+      "processingTemplate": "WF_FDW_CHN_CORE_DER_BAL_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_CORE_DER_BAL_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_LOAD_DM_MLY",
+      "processingTemplate": "WF_SPT_CHN_LOAD_DM_MLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_LOAD_DM_MLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "MLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_START_DLY",
+      "processingTemplate": "WF_FDW_CHN_START_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_START_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_HIST_TRADE_NF_DLY",
+      "processingTemplate": "WF_FDW_CHN_HIST_TRADE_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_HIST_TRADE_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_AEG_CHN_SCH_INFA_PROCESSING_DLY",
+      "processingTemplate": "WF_AEG_CHN_SCH_INFA_PROCESSING_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_AEG_CHN_SCH_INFA_PROCESSING_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_AEG_CHN_C20_INFA_PROCESSING_DLY",
+      "processingTemplate": "WF_AEG_CHN_C20_INFA_PROCESSING_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_AEG_CHN_C20_INFA_PROCESSING_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_S2B_N11_DLY",
+      "processingTemplate": "WF_GLS_CHN_S2B_N11_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_S2B_N11_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_PS_STAT_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_PS_STAT_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_PS_STAT_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_CASHFLOW_NF_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_CASHFLOW_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_CASHFLOW_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_N11_POST_DLY",
+      "processingTemplate": "WF_GLS_CHN_N11_POST_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_N11_POST_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_AEG_CHN_N11_INFA_PROCESSING_DLY",
+      "processingTemplate": "WF_AEG_CHN_N11_INFA_PROCESSING_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_AEG_CHN_N11_INFA_PROCESSING_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_GL_DLY",
+      "processingTemplate": "WF_GLS_CHN_GL_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_GL_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_S2B_M09_DLY",
+      "processingTemplate": "WF_GLS_CHN_S2B_M09_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_S2B_M09_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_GEN_BEGIN_DLY",
+      "processingTemplate": "WF_GLS_CHN_GEN_BEGIN_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_GEN_BEGIN_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_S2B_CHN_F06_DLY",
+      "processingTemplate": "WF_S2B_CHN_F06_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_S2B_CHN_F06_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_REVAL_DLY",
+      "processingTemplate": "WF_GLS_CHN_REVAL_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_REVAL_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_S2B_CHN_N11_INFA_PROCESSING_DLY",
+      "processingTemplate": "WF_S2B_CHN_N11_INFA_PROCESSING_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_S2B_CHN_N11_INFA_PROCESSING_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_N11_CORENF_DLY",
+      "processingTemplate": "WF_FDW_CHN_N11_CORENF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_N11_CORENF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_RELATION_NF_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_RELATION_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_RELATION_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_ORGANISATION_NF_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_ORGANISATION_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_ORGANISATION_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_TAX_ALLOC_DLY",
+      "processingTemplate": "WF_GLS_CHN_TAX_ALLOC_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_TAX_ALLOC_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_S2B_C20_DLY",
+      "processingTemplate": "WF_GLS_CHN_S2B_C20_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_S2B_C20_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_F06_POST_DLY",
+      "processingTemplate": "WF_GLS_CHN_F06_POST_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_F06_POST_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_GLOBAL_REPORTING_DLY",
+      "processingTemplate": "WF_FDW_CHN_GLOBAL_REPORTING_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_GLOBAL_REPORTING_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_PLSELLOFF_DLY",
+      "processingTemplate": "WF_GLS_CHN_PLSELLOFF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_PLSELLOFF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_M09_POST_DLY",
+      "processingTemplate": "WF_GLS_CHN_M09_POST_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_M09_POST_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_CORE_FIN_DLY",
+      "processingTemplate": "WF_FDW_CHN_CORE_FIN_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_CORE_FIN_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_POST_FUND_DLY",
+      "processingTemplate": "WF_GLS_CHN_POST_FUND_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_POST_FUND_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_AEG_CHN_SCH_DLY",
+      "processingTemplate": "WF_AEG_CHN_SCH_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_AEG_CHN_SCH_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_FMA_DLY",
+      "processingTemplate": "WF_FDW_CHN_FMA_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_FMA_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_N11_INB_DLY",
+      "processingTemplate": "WF_FDW_CHN_N11_INB_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_N11_INB_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_GLOBAL_DATAMART_DLY",
+      "processingTemplate": "WF_FDW_CHN_GLOBAL_DATAMART_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_GLOBAL_DATAMART_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_FUNDING_DLY",
+      "processingTemplate": "WF_GLS_CHN_FUNDING_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_FUNDING_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_DELTA_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_DELTA_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_DELTA_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_S2B_CHN_M09_DLY",
+      "processingTemplate": "WF_S2B_CHN_M09_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_S2B_CHN_M09_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_B12_POST_DLY",
+      "processingTemplate": "WF_GLS_CHN_B12_POST_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_B12_POST_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_S2B_B12_DLY",
+      "processingTemplate": "WF_GLS_CHN_S2B_B12_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_S2B_B12_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_AEG_CHN_B12_INFA_PROCESSING_DLY",
+      "processingTemplate": "WF_AEG_CHN_B12_INFA_PROCESSING_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_AEG_CHN_B12_INFA_PROCESSING_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_C20_INB_CAL_DR_DLY",
+      "processingTemplate": "WF_FDW_CHN_C20_INB_CAL_DR_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_C20_INB_CAL_DR_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_C20_INB_CAL_MM_DLY",
+      "processingTemplate": "WF_FDW_CHN_C20_INB_CAL_MM_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_C20_INB_CAL_MM_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_M09_INB_DLY",
+      "processingTemplate": "WF_FDW_CHN_M09_INB_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_M09_INB_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_S2B_CHN_B12_DLY",
+      "processingTemplate": "WF_S2B_CHN_B12_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_S2B_CHN_B12_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_CPR_CORENF_DLY",
+      "processingTemplate": "WF_FDW_CHN_CPR_CORENF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_CPR_CORENF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_C20_POST_DLY",
+      "processingTemplate": "WF_GLS_CHN_C20_POST_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_C20_POST_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_STIB_CORENF_DLY",
+      "processingTemplate": "WF_FDW_CHN_STIB_CORENF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_STIB_CORENF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_GEN_END_DLY",
+      "processingTemplate": "WF_GLS_CHN_GEN_END_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_GEN_END_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_SCH_POST_DLY",
+      "processingTemplate": "WF_GLS_CHN_SCH_POST_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_SCH_POST_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_ENGINES_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_ENGINES_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_ENGINES_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_RISK_NF_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_RISK_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_RISK_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_POST_DLY",
+      "processingTemplate": "WF_GLS_CHN_POST_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_POST_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_S2B_CHN_C20_INFA_PROCESSING_DLY",
+      "processingTemplate": "WF_S2B_CHN_C20_INFA_PROCESSING_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_S2B_CHN_C20_INFA_PROCESSING_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_AEG_CHN_F06_DLY",
+      "processingTemplate": "WF_AEG_CHN_F06_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_AEG_CHN_F06_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_HIST_RELATION_NF_DLY",
+      "processingTemplate": "WF_FDW_CHN_HIST_RELATION_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_HIST_RELATION_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_STIB_INB_DLY",
+      "processingTemplate": "WF_FDW_CHN_STIB_INB_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_STIB_INB_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_F06_INB_DLY",
+      "processingTemplate": "WF_FDW_CHN_F06_INB_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_F06_INB_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_M09_CORENF_DLY",
+      "processingTemplate": "WF_FDW_CHN_M09_CORENF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_M09_CORENF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_C20_CORENF_DLY",
+      "processingTemplate": "WF_FDW_CHN_C20_CORENF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_C20_CORENF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_HIST_CASHFLOW_NF_DLY",
+      "processingTemplate": "WF_FDW_CHN_HIST_CASHFLOW_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_HIST_CASHFLOW_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_FMA_MATCH_FIN_DLY",
+      "processingTemplate": "WF_FDW_CHN_FMA_MATCH_FIN_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_FMA_MATCH_FIN_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_HIST_MLY",
+      "processingTemplate": "WF_FDW_CHN_HIST_MLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_HIST_MLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "MLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_AEG_CHN_B12_DLY",
+      "processingTemplate": "WF_AEG_CHN_B12_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_AEG_CHN_B12_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_ROL_MATCH_FIN_DLY",
+      "processingTemplate": "WF_FDW_CHN_ROL_MATCH_FIN_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_ROL_MATCH_FIN_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_INTEREST_RATE_NF_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_INTEREST_RATE_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_INTEREST_RATE_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_HIST_INTEREST_RATE_NF_DLY",
+      "processingTemplate": "WF_FDW_CHN_HIST_INTEREST_RATE_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_HIST_INTEREST_RATE_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_S2B_DLY",
+      "processingTemplate": "WF_GLS_CHN_S2B_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_S2B_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_S2B_CHN_N11_DLY",
+      "processingTemplate": "WF_S2B_CHN_N11_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_S2B_CHN_N11_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_GLS_CHN_S2B_PME_DLY",
+      "processingTemplate": "WF_GLS_CHN_S2B_PME_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_GLS_CHN_S2B_PME_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_F06_CORENF_DLY",
+      "processingTemplate": "WF_FDW_CHN_F06_CORENF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_F06_CORENF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_S2B_CHN_C20_DLY",
+      "processingTemplate": "WF_S2B_CHN_C20_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_S2B_CHN_C20_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_HIST_FACILITY_NF_DLY",
+      "processingTemplate": "WF_FDW_CHN_HIST_FACILITY_NF_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_HIST_FACILITY_NF_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_CORE_DER_DLY",
+      "processingTemplate": "WF_FDW_CHN_CORE_DER_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_CORE_DER_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_SPT_CHN_DM_OTHER_STAT_DLY",
+      "processingTemplate": "WF_SPT_CHN_DM_OTHER_STAT_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_SPT_CHN_DM_OTHER_STAT_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    },
+    {
+      "name": "WF_FDW_CHN_ROL_DLY",
+      "processingTemplate": "WF_FDW_CHN_ROL_DLY",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "title": "WF_FDW_CHN_ROL_DLY",
+      "workflowType": "STANDARD",
+      "templateParameters": {
+        "OCCURRENCE": "DLY",
+        "REGION": "CHN"
+      }
+    }
+  ],
+  "timeTriggers": 
+  [
+    {
+      "calendar": "GFS_CAL",
+      "endTime": 86399999,
+      "passBy": true,
+      "repeatInterval": 3600000,
+      "startTime": 77400000,
+      "timeTriggerType": "DAILY",
+      "timeZone": "Europe/Amsterdam"
+    }
+  ]
+}

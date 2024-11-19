@@ -1,0 +1,37 @@
+{
+  "owner": "api_user",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "items": 
+  [
+    {
+      "name": "WF_FDW_ALL_FIN_EXT_TRIG_INTRADAY_1BD_CLC",
+      "processingTemplate": "WF_FDW_ALL_FIN_EXT_TRIG_INTRADAY_1BD_CLC",
+      "processingType": "WORKFLOW",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "workflowType": "CYCLE",
+      "templateParameters": {
+        "OCCURRENCE": "CLC",
+        "REGION": "ALL"
+      }
+    }
+  ],
+  "timeTriggers": 
+  [
+    {
+      "calculateProcessingTimestampUsingLocalTime": true,
+      "endTime": 86399999,
+      "repeatInterval": 3600000,
+      "startTime": 0,
+      "timeTriggerType": "TIMESTAMP",
+      "timeZone": "Europe/Warsaw",
+      "timestamp": "2023-04-27T14:30:00.000"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "owner": "api_user",
+  "priority": "0",
+  "processingType": "TRIGGER",
+  "statisticMethod": "AVERAGE",
+  "statisticPeriod": "MONTH",
+  "triggerType": "SCHEDULE",
+  "customFieldValues": {
+  },
+  "items": 
+  [
+    {
+      "name": "wait_2",
+      "processingTemplate": "wait_2",
+      "processingType": "TASK",
+      "serverNodeType": "INTERNAL",
+      "statisticMethod": "AVERAGE",
+      "statisticPeriod": "MONTH",
+      "taskType": "WAIT"
+    }
+  ],
+  "timeTriggers": 
+  [
+    {
+      "endTime": 86399999,
+      "repeatInterval": 3600000,
+      "startTime": 0,
+      "timeTriggerType": "REPEATING"
+    }
+  ]
+}
